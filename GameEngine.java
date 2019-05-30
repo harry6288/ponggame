@@ -170,6 +170,7 @@ public class GameEngine extends SurfaceView implements Runnable {
         if (ballPosition.x > screenWidth) {
             Log.d(TAG, "Ball reached bottom of screen. Changing direction!");
             movingRight = false;
+            this.score = this.score + 1;
         }
 
         if (ballPosition.x < 0) {
