@@ -56,6 +56,7 @@ public class GameEngine extends SurfaceView implements Runnable {
 
     // variables for setting (left, top) position of paddle
     Point racketPosition;
+    Point racketPosition2;
 
     // variables for controlling size of paddle
     final int DISTANCE_FROM_WALL= 100;
@@ -95,6 +96,10 @@ public class GameEngine extends SurfaceView implements Runnable {
         racketPosition = new Point();
         racketPosition.x = DISTANCE_FROM_WALL;   // left
         racketPosition.y = (this.screenHeight/2-PADDLE_HEIGHT);                // top
+// set the initial position of the racket2
+        racketPosition2 = new Point();
+        racketPosition2.x = (this.screenWidth - DISTANCE_FROM_WALL - PADDLE_WIDTH);   // left
+        racketPosition2.y = (this.screenHeight/2-PADDLE_HEIGHT);                // top
 
 
 
@@ -213,6 +218,12 @@ public class GameEngine extends SurfaceView implements Runnable {
             int paddleRight = racketPosition.x + PADDLE_WIDTH;
             int paddleBottom = racketPosition.y + 2*PADDLE_HEIGHT;
             canvas.drawRect(paddleLeft, paddleTop, paddleRight, paddleBottom, paintbrush);
+
+            int paddle2Left = racketPosition2.x;
+            int paddle2Top = racketPosition2.y;
+            int paddle2Right = racketPosition2.x + PADDLE_WIDTH;
+            int paddle2Bottom = racketPosition2.y + 2*PADDLE_HEIGHT;
+            canvas.drawRect(paddle2Left, paddle2Top, paddle2Right, paddle2Bottom, paintbrush);
 
             //@TODO: Draw game statistics (lives, score, etc)
             paintbrush.setTextSize(60);
