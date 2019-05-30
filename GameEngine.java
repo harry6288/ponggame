@@ -246,13 +246,13 @@ public class GameEngine extends SurfaceView implements Runnable {
 
             Log.d(TAG, "The person tapped: (" + event.getX() + "," + event.getY() + ")");
 
-            if (event.getX() < this.screenWidth / 2) {
+            if (event.getY() < this.screenHeight/ 2) {
                 Log.d(TAG, "Person clicked LEFT side");
-                racketPosition.x = racketPosition.x - PADDLE_DISTANCE;
+                racketPosition.y = racketPosition.y - PADDLE_DISTANCE;
             }
             else {
                 Log.d(TAG, "Person clicked RIGHT side");
-                racketPosition.x = racketPosition.x + PADDLE_DISTANCE;
+                racketPosition.y = racketPosition.y + PADDLE_DISTANCE;
             }
 
 
