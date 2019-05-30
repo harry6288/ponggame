@@ -158,6 +158,7 @@ public class GameEngine extends SurfaceView implements Runnable {
     final int BALL_SPEED = 10;
 
     boolean movingRight = true;
+    boolean movingUp = true;
     final int PADDLE_DISTANCE = 50;
 
     // 1. Tell Android the (x,y) positions of your sprites
@@ -183,6 +184,26 @@ public class GameEngine extends SurfaceView implements Runnable {
             movingRight = true;
             this.score = this.score + 1;
         }
+
+
+
+        if (movingUp == true) {
+            racketPosition2.y = racketPosition2.y+ PADDLE_DISTANCE;
+        }
+        else {
+            racketPosition2.y = racketPosition2.y-PADDLE_DISTANCE;
+        }
+
+        // @TODO: Collision detection code
+        if (racketPosition2.y > screenHeight) {
+                   Log.d(TAG, "Paddle2 reached bottom of screen. Changing direction!");
+                        movingUp = false;
+                  }
+
+        if (racketPosition2.y < 0) {
+                       Log.d(TAG, "Paddle2 reached TOP of screen. Changing direction!");
+                       movingUp = true;
+                  }
 
         // Log.d(TAG, "Ball y-position: " + ballPosition.y);
 
