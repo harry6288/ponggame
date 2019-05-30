@@ -159,22 +159,22 @@ public class GameEngine extends SurfaceView implements Runnable {
     public void updatePositions() {
         // @TODO: Update the position of the sprites
 
-        if (movingDown == true) {
-            ballPosition.y = ballPosition.y + BALL_SPEED;
+        if (movingRight == true) {
+            ballPosition.x = ballPosition.x+ BALL_SPEED;
         }
         else {
-            ballPosition.y = ballPosition.y - BALL_SPEED;
+            ballPosition.x = ballPosition.x - BALL_SPEED;
         }
 
         // @TODO: Collision detection code
-        if (ballPosition.y > screenHeight) {
+        if (ballPosition.x > screenWidth) {
             Log.d(TAG, "Ball reached bottom of screen. Changing direction!");
-            movingDown = false;
+            movingRight = false;
         }
 
-        if (ballPosition.y < 0) {
+        if (ballPosition.x < 0) {
             Log.d(TAG, "Ball reached TOP of screen. Changing direction!");
-            movingDown = true;
+            movingRight = true;
             this.score = this.score + 1;
         }
 
